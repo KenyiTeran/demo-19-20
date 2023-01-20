@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BusquedaComponent } from './principal/busqueda/busqueda.component';
-import { FormularioComponent } from './principal/formulario/formulario.component';
-import { VistaComponent } from './principal/vista/vista.component';
+import { CanactivateGuard } from './canactivate.guard';
+import { LoginComponent } from './principal/login/login.component';
+import { PostComponent } from './principal/post/post.component';
 
 const routes: Routes = [
-  {path: "vista", component: VistaComponent},
-  {path: "formulario", component: FormularioComponent},
-  {path: "busqueda", component: BusquedaComponent}
+
+{path: 'post', component: PostComponent, canActivate: [CanactivateGuard]},
+
+{path: '', component: LoginComponent },
+{path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
